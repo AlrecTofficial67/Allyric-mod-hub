@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Allyric Mod Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#04070f;--c1:#00c9ff;--c2:#ff5e29;--c3:#9d4edd;
+  --green:#00e87a;--txt:#dde8ff;--dim:#5a7099;
+}
+body{
+  background:var(--bg);color:var(--txt);
+  font-family:'Rajdhani',sans-serif;
+  min-height:100vh;overflow:hidden;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(0,201,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,201,255,.025) 1px,transparent 1px);
+  background-size:44px 44px;pointer-events:none;z-index:0
+}
+canvas{position:fixed;top:0;left:0;z-index:0;opacity:.35}
+
+.container{
+  position:relative;z-index:10;
+  text-align:center;padding:20px;
+  max-width:500px;width:100%;
+}
+
+.glitch-wrap{position:relative;margin-bottom:8px}
+.num{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(80px,22vw,160px);
+  font-weight:900;line-height:1;
+  color:transparent;
+  -webkit-text-stroke:2px var(--c1);
+  text-shadow:0 0 40px rgba(0,201,255,.4);
+  position:relative;display:inline-block;
+  animation:glitch 3s infinite;
+}
+.num::before,.num::after{
+  content:'404';
+  position:absolute;top:0;left:0;width:100%;
+  font-family:'Orbitron',sans-serif;
+  font-size:inherit;font-weight:900;
+  color:transparent;
+}
+.num::before{
+  -webkit-text-stroke:2px var(--c2);
+  animation:glitchTop 3s infinite;
+  clip-path:polygon(0 0,100% 0,100% 45%,0 45%);
+}
+.num::after{
+  -webkit-text-stroke:2px var(--c3);
+  animation:glitchBot 3s infinite;
+  clip-path:polygon(0 55%,100% 55%,100% 100%,0 100%);
+}
+@keyframes glitch{
+  0%,90%,100%{transform:translate(0)}
+  91%{transform:translate(-3px,1px)}
+  93%{transform:translate(3px,-1px)}
+  95%{transform:translate(-2px,2px)}
+  97%{transform:translate(2px,-2px)}
+}
+@keyframes glitchTop{
+  0%,90%,100%{transform:translate(0);opacity:1}
+  91%{transform:translate(4px,0);opacity:.8}
+  93%{transform:translate(-4px,0);opacity:.8}
+  95%{transform:translate(0);opacity:1}
+}
+@keyframes glitchBot{
+  0%,88%,100%{transform:translate(0);opacity:1}
+  89%{transform:translate(-5px,0);opacity:.7}
+  91%{transform:translate(5px,0);opacity:.7}
+  93%{transform:translate(0);opacity:1}
+}
+
+.err-label{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--c2);
+  letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:12px;
+  animation:blink 1.4s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.title{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(14px,4vw,20px);
+  font-weight:700;color:var(--txt);
+  letter-spacing:2px;margin-bottom:10px;
+}
+.desc{
+  font-size:13px;color:var(--dim);
+  line-height:1.8;margin-bottom:24px;
+}
+.desc span{color:var(--c1)}
+
+.progress-bar{
+  width:100%;height:3px;
+  background:rgba(0,201,255,.1);
+  border-radius:2px;margin-bottom:8px;
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%;width:0;
+  background:linear-gradient(90deg,var(--c1),var(--c3));
+  border-radius:2px;
+  transition:width .1s linear;
+}
+.cd-txt{
+  font-family:'Space Mono',monospace;
+  font-size:11px;color:var(--dim);
+  margin-bottom:24px;letter-spacing:1px;
+}
+.cd-txt span{color:var(--c1);font-weight:700}
+
+.btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:11px 20px;border-radius:9px;
+  font-family:'Rajdhani',sans-serif;
+  font-size:13px;font-weight:700;letter-spacing:.8px;
+  text-decoration:none;cursor:pointer;
+  border:none;transition:all .2s;
+}
+.btn-home{
+  background:linear-gradient(135deg,#005090,var(--c1));
+  color:#fff;box-shadow:0 4px 16px rgba(0,201,255,.2);
+}
+.btn-home:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,201,255,.4)}
+.btn-back{
+  background:rgba(157,78,221,.1);
+  border:1px solid rgba(157,78,221,.3);
+  color:var(--c3);
+}
+.btn-back:hover{background:rgba(157,78,221,.2);transform:translateY(-2px)}
+
+.scan-line{
+  position:fixed;top:0;left:0;width:100%;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(0,201,255,.6),transparent);
+  animation:scan 4s linear infinite;z-index:5;pointer-events:none;
+}
+@keyframes scan{0%{top:0}100%{top:100vh}}
+
+.ptcl{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.p{position:absolute;width:2px;height:2px;background:var(--c1);border-radius:50%;opacity:0;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(100vh);opacity:0}10%{opacity:.4}90%{opacity:.1}100%{transform:translateY(-8vh);opacity:0}}
+
+.corner{position:fixed;width:30px;height:30px;z-index:10}
+.corner.tl{top:16px;left:16px;border-top:2px solid var(--c1);border-left:2px solid var(--c1)}
+.corner.tr{top:16px;right:16px;border-top:2px solid var(--c1);border-right:2px solid var(--c1)}
+.corner.bl{bottom:16px;left:16px;border-bottom:2px solid var(--c1);border-left:2px solid var(--c1)}
+.corner.br{bottom:16px;right:16px;border-bottom:2px solid var(--c1);border-right:2px solid var(--c1)}
+</style>
+</head>
+<body>
+
+<div class="ptcl" id="ptcl"></div>
+<div class="scan-line"></div>
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+
+<div class="container">
+  <div class="glitch-wrap">
+    <div class="num">404</div>
+  </div>
+  <div class="err-label">⚠ ERROR · PAGE_NOT_FOUND</div>
+  <div class="title">HALAMAN TIDAK DITEMUKAN</div>
+  <div class="desc">
+    Halaman <span id="urlPath">/???</span> yang kamu cari tidak ada.<br>
+    Mungkin URL salah, atau halaman udah dihapus.
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div class="cd-txt">Auto redirect ke home dalam <span id="countdown">10</span> detik...</div>
+  <div class="btns">
+    <a href="/" class="btn btn-home">⚡ Balik ke Home</a>
+    <a href="javascript:history.back()" class="btn btn-back">← Kembali</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  const pc=document.getElementById('ptcl');
+  for(let i=0;i<14;i++){
+    const p=document.createElement('div');p.className='p';
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(10+Math.random()*14)+'s';
+    p.style.animationDelay=(-Math.random()*24)+'s';
+    if(Math.random()>.7)p.style.background='#9d4edd';
+    if(Math.random()>.85)p.style.background='#ff5e29';
+    pc.appendChild(p);
+  }
+
+  const urlEl=document.getElementById('urlPath');
+  if(urlEl){
+    const p=window.location.pathname;
+    urlEl.textContent=p.length>30?p.substring(0,30)+'...':p;
+  }
+
+  let t=10;
+  const cdEl=document.getElementById('countdown');
+  const bar=document.getElementById('progressFill');
+  const total=10;
+
+  const itv=setInterval(()=>{
+    t--;
+    if(cdEl)cdEl.textContent=t;
+    if(bar)bar.style.width=((total-t)/total*100)+'%';
+    if(t<=0){clearInterval(itv);window.location.href='/';}
+  },1000);
+})();
+</script>
+</body>
+</html>
