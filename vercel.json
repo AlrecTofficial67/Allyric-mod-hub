@@ -4,7 +4,5 @@
     { "source": "/virus", "destination": "/pages/virus.html" },
     { "source": "/credits", "destination": "/pages/credits.html" }
   ],
-  "routes": [
-    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
-  ]
+  "cleanUrls": true
 }
