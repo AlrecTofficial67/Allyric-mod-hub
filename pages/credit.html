@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credits — Allyric Mod Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#04070f;--c1:#00c9ff;--c3:#9d4edd;--gold:#f5c518;--green:#00e87a;--txt:#dde8ff;--dim:#5a7099;--panel:#0a1122;--border:#162444}
+body{background:var(--bg);color:var(--txt);font-family:'Rajdhani',sans-serif;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,201,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,201,255,.025) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
+
+.ptcl{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.p{position:absolute;width:2px;height:2px;background:var(--c1);border-radius:50%;opacity:0;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(100vh);opacity:0}10%{opacity:.5}90%{opacity:.15}100%{transform:translateY(-8vh);opacity:0}}
+
+.wrap{position:relative;z-index:10;max-width:520px;margin:0 auto;padding:40px 20px 80px}
+
+.back-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--dim);text-decoration:none;
+  letter-spacing:1px;margin-bottom:28px;
+  transition:color .2s;
+}
+.back-btn:hover{color:var(--c1)}
+
+.hero{text-align:center;margin-bottom:32px}
+.hero-icon{
+  width:64px;height:64px;margin:0 auto 14px;
+  background:linear-gradient(135deg,rgba(0,201,255,.12),rgba(157,78,221,.12));
+  border:1.5px solid var(--c1);border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;
+  box-shadow:0 0 30px rgba(0,201,255,.25);
+  animation:pulse 3s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 30px rgba(0,201,255,.25)}50%{box-shadow:0 0 50px rgba(0,201,255,.5)}}
+.hero-title{
+  font-family:'Orbitron',sans-serif;font-size:20px;font-weight:900;
+  background:linear-gradient(135deg,var(--c1),var(--c3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;letter-spacing:2px;
+}
+.hero-sub{font-size:11px;color:var(--dim);letter-spacing:2px;margin-top:4px}
+
+.section{margin-bottom:24px}
+.sec-label{
+  font-family:'Orbitron',sans-serif;font-size:10px;
+  color:var(--c1);letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:12px;display:flex;align-items:center;gap:8px;
+}
+.sec-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(0,201,255,.3),transparent)}
+
+.credit-card{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:12px;padding:14px 16px;margin-bottom:10px;
+  display:flex;align-items:center;gap:12px;
+  transition:all .25s;
+}
+.credit-card:hover{border-color:rgba(0,201,255,.4);transform:translateX(4px)}
+.credit-avatar{
+  width:40px;height:40px;min-width:40px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.credit-info{flex:1}
+.credit-name{font-size:14px;font-weight:700;color:#fff}
+.credit-role{font-size:11px;color:var(--dim);margin-top:2px}
+.credit-badge{
+  font-size:9px;font-weight:700;letter-spacing:1.5px;
+  padding:3px 8px;border-radius:12px;white-space:nowrap;
+}
+.badge-dev{background:linear-gradient(135deg,#005090,var(--c1));color:#fff}
+.badge-src{background:linear-gradient(135deg,#128c7e,#25d366);color:#fff}
+.badge-tool{background:linear-gradient(135deg,#6218b0,var(--c3));color:#fff}
+
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tech-item{
+  background:rgba(0,201,255,.04);border:1px solid rgba(0,201,255,.1);
+  border-radius:9px;padding:10px 12px;
+  font-size:12px;color:#7aaccc;
+  display:flex;align-items:center;gap:8px;
+}
+.tech-item .icon{font-size:16px}
+
+.foot{text-align:center;margin-top:28px;font-size:11.5px;color:var(--dim);line-height:1.9}
+.foot a{color:var(--c1);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="ptcl" id="ptcl"></div>
+
+<div class="wrap">
+  <a href="/" class="back-btn">← Kembali ke Hub</a>
+
+  <div class="hero">
+    <div class="hero-icon">⚡</div>
+    <div class="hero-title">ALLYRIC MOD HUB</div>
+    <div class="hero-sub">Credits & Acknowledgements · v2.0</div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Developer</div>
+    <div class="credit-card">
+      <div class="credit-avatar" style="background:rgba(0,201,255,.1);border:1px solid rgba(0,201,255,.2)">👨‍💻</div>
+      <div class="credit-info">
+        <div class="credit-name">Allyric Olliver</div>
+        <div class="credit-role">Lead Developer · UI/UX · Web Dev</div>
+      </div>
+      <span class="credit-badge badge-dev">DEV</span>
+    </div>
+    <div class="credit-card">
+      <div class="credit-avatar" style="background:rgba(157,78,221,.1);border:1px solid rgba(157,78,221,.2)">🛠️</div>
+      <div class="credit-info">
+        <div class="credit-name">Alrect Verdan</div>
+        <div class="credit-role">Script Dev · Alias Developer</div>
+      </div>
+      <span class="credit-badge badge-dev">DEV</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Sumber Mod</div>
+    <div class="credit-card">
+      <div class="credit-avatar" style="background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2)">📢</div>
+      <div class="credit-info">
+        <div class="credit-name">@Kenz</div>
+        <div class="credit-role">WA Channel · Sumber utama mod</div>
+      </div>
+      <span class="credit-badge badge-src">SOURCE</span>
+    </div>
+    <div class="credit-card">
+      <div class="credit-avatar" style="background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.2)">🔁</div>
+      <div class="credit-info">
+        <div class="credit-name">@Hifin</div>
+        <div class="credit-role">Reshare & Distribusi Mod</div>
+      </div>
+      <span class="credit-badge badge-src">RESHARE</span>
+    </div>
+    <div class="credit-card">
+      <div class="credit-avatar" style="background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.2)">🎮</div>
+      <div class="credit-info">
+        <div class="credit-name">FyyTzy</div>
+        <div class="credit-role">Mod Data & File Creator</div>
+      </div>
+      <span class="credit-badge badge-src">SOURCE</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Tech Stack</div>
+    <div class="tech-grid">
+      <div class="tech-item"><span class="icon">🌐</span> HTML5</div>
+      <div class="tech-item"><span class="icon">🎨</span> CSS3 Vanilla</div>
+      <div class="tech-item"><span class="icon">⚡</span> JavaScript ES6</div>
+      <div class="tech-item"><span class="icon">🚀</span> Vercel Hosting</div>
+      <div class="tech-item"><span class="icon">🐙</span> and Ai </div>
+      <div class="tech-item"><span class="icon">📦</span> Catbox CDN</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    © 2026 <strong style="color:var(--c1)">Allyric Mod Hub</strong> · Dibuat dengan ☕ dan <span style="color:#ff5e29">semangat receh</span><br>
+    Bukan afiliasi resmi Free Fire / Garena<br>
+    <a href="/">← Balik ke Hub</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  const pc=document.getElementById('ptcl');
+  for(let i=0;i<14;i++){
+    const p=document.createElement('div');p.className='p';
+    p.style.left=Math.random()*100+'%';
+    p.style.animationDuration=(9+Math.random()*13)+'s';
+    p.style.animationDelay=(-Math.random()*22)+'s';
+    if(Math.random()>.65)p.style.background='#9d4edd';
+    if(Math.random()>.82)p.style.background='#ff5e29';
+    pc.appendChild(p);
+  }
+})();
+</script>
+</body>
+</html>
