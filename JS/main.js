@@ -18,23 +18,6 @@ function _esc(str){
   }
 })();
 
-let _cdTime=30,_cdItv=null;
-function startCountdown(){
-  const btn=document.getElementById('discBtn');
-  const cdEl=document.getElementById('discCd');
-  if(btn)btn.disabled=true;
-  _cdItv=setInterval(()=>{
-    _cdTime--;
-    if(cdEl)cdEl.textContent=_cdTime;
-    if(_cdTime<=0){
-      clearInterval(_cdItv);
-      if(btn){btn.disabled=false;btn.innerHTML='<i class="fi fi-br-checkbox"></i> SAYA MENGERTI &amp; SETUJU';}
-      const cdWrap=document.getElementById('discCdWrap');
-      if(cdWrap)cdWrap.style.display='none';
-    }
-  },1000);
-}
-
 let _chStarted=false;
 function closeDisc(){
   document.getElementById('discModal').style.display='none';
@@ -145,5 +128,4 @@ function goTab(cat,btn){
 }
 
 window.addEventListener('DOMContentLoaded',()=>{
-  startCountdown();
 });
