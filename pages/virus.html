@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⚠️ SYSTEM ALERT — Allyric</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#000;color:#0f0;
+  font-family:'Space Mono',monospace;
+  min-height:100vh;overflow:hidden;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+}
+#terminal{
+  width:100%;max-width:600px;
+  padding:20px;font-size:clamp(11px,2.5vw,14px);
+  line-height:1.9;
+}
+.line{display:block;opacity:0;animation:appear .05s forwards}
+@keyframes appear{to{opacity:1}}
+.red{color:#ff3d3d}
+.yellow{color:#f5c518}
+.cyan{color:#00c9ff}
+.dim{color:#2a5f2a}
+.blink{animation:blink .7s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+
+#reveal{
+  position:fixed;inset:0;background:#000;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:20px;
+  z-index:100;opacity:0;pointer-events:none;
+  transition:opacity .5s;
+}
+#reveal.show{opacity:1;pointer-events:all}
+.big-emoji{font-size:72px;margin-bottom:16px;animation:bounce 1.5s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.reveal-title{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(20px,6vw,32px);
+  font-weight:900;color:#f5c518;
+  margin-bottom:10px;letter-spacing:2px;
+}
+.reveal-sub{color:#5a7099;font-size:13px;line-height:1.8;max-width:360px;margin-bottom:24px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:10px;
+  background:linear-gradient(135deg,#005090,#00c9ff);
+  color:#fff;font-family:monospace;
+  font-size:13px;font-weight:700;
+  text-decoration:none;letter-spacing:1px;
+  cursor:pointer;border:none;transition:all .2s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,201,255,.4)}
+</style>
+</head>
+<body>
+
+<div id="terminal"></div>
+
+<div id="reveal">
+  <div class="big-emoji">😹</div>
+  <div class="reveal-title">KENA TROLL LU!</div>
+  <div class="reveal-sub">
+    Santuy, ini cuma troll page buat ngescare temen lu 😈<br>
+    Ga ada yang beneran di sini. HP lu aman kok.<br><br>
+    <span style="color:#f5c518">Kirim link ini ke temen, liatin reaksinya 🔥</span>
+  </div>
+  <a href="/" class="btn">⚡ Balik ke Hub</a>
+</div>
+
+<script>
+const lines=[
+  {t:'[SYSTEM] Scanning device...', c:'dim', d:400},
+  {t:'[WARN]   Suspicious access detected from: /virus', c:'yellow', d:700},
+  {t:'[SCAN]   Checking device integrity...', c:'dim', d:1100},
+  {t:'[INFO]   OS: Android / '+navigator.platform, c:'cyan', d:1500},
+  {t:'[INFO]   Browser: '+navigator.userAgent.substring(0,45)+'...', c:'cyan', d:1800},
+  {t:'', c:'', d:2000},
+  {t:'[!!!!!]  MALWARE DETECTED — THREAT LEVEL: CRITICAL', c:'red', d:2300},
+  {t:'[VIRUS]  Trojan.FF.ModHack.EXE found in /data/local', c:'red', d:2700},
+  {t:'[VIRUS]  Keylogger.AGH.2026 injecting into system...', c:'red', d:3100},
+  {t:'[CRYPT]  Encrypting user files: 0%...', c:'red', d:3500},
+  {t:'[CRYPT]  Encrypting user files: 23%...', c:'red', d:3900},
+  {t:'[CRYPT]  Encrypting user files: 67%...', c:'red', d:4200},
+  {t:'[CRYPT]  Encrypting user files: 100% DONE', c:'red', d:4500},
+  {t:'', c:'', d:4600},
+  {t:'[SYS]    Contacting remote server: 192.168.allyric.troll', c:'yellow', d:4900},
+  {t:'[SYS]    Uploading contact list... done', c:'yellow', d:5300},
+  {t:'[SYS]    Uploading photos... done', c:'yellow', d:5700},
+  {t:'[SYS]    Uploading bank data... done', c:'yellow', d:6100},
+  {t:'', c:'', d:6200},
+  {t:'[ROOT]   Gaining root access...', c:'red', d:6500},
+  {t:'[ROOT]   Root access: GRANTED ✓', c:'red', d:7000},
+  {t:'', c:'', d:7100},
+  {t:'>>> INITIATING SELF DESTRUCT IN 3...', c:'red', d:7400},
+  {t:'>>> INITIATING SELF DESTRUCT IN 2...', c:'red', d:7900},
+  {t:'>>> INITIATING SELF DESTRUCT IN 1...', c:'red', d:8400},
+  {t:'', c:'', d:8600},
+  {t:'haha jk wkwkwk 😹😹😹', c:'yellow', d:8800},
+];
+
+const term=document.getElementById('terminal');
+lines.forEach((l)=>{
+  setTimeout(()=>{
+    const s=document.createElement('span');
+    s.className='line '+(l.c||'');
+    s.textContent=l.t||' ';
+    term.appendChild(s);
+    term.scrollTop=term.scrollHeight;
+  },l.d);
+});
+
+setTimeout(()=>{
+  document.getElementById('reveal').classList.add('show');
+},9400);
+</script>
+</body>
+</html>
